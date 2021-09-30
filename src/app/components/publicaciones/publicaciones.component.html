@@ -1,0 +1,70 @@
+<form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+    <div class="display-block">
+        <label>
+            Titulo:
+            <input type="text" formControlName="titulo">
+        </label>
+        <div *ngIf="profileForm.controls['titulo'].touched &&
+               profileForm.controls['titulo'].invalid"
+               class="alert-danger">
+            <div *ngIf="profileForm.controls['titulo'].errors &&
+                pofileForm.controls['titulo'].errors.required">
+                El titulo es necesario.</div>
+        </div>
+    </div>
+    <div class="display-block margin-top-10">
+        <label>
+            Descripcion:
+            <input type="text" formControlName="descripcion">
+        </label>
+        <div *ngIf="profileForm.controls['descripcion'].touched &&
+            profileForm.controls['descripcion'].invalid" 
+            class="alert-danger">
+            <div *ngIf="profileForm.controls['descripcion'].errors &&
+                profileForm.controls['descripcion'].errors.required">
+                La descripción es necesaria.</div>
+        </div>
+    </div>
+    <div class="display-block margin-top-10">
+        <label>
+            Autor:
+            <input type="text" formControlName="autor">
+        </label>
+        <div *ngIf="profileForm.controls['autor'].touched &&
+            profileForm.controls['autor'].invalid" 
+            class="alert-danger">
+            <div *ngIf="profileForm.controls['autor'].errors &&
+                profileForm.controls['autor'].errors.required">
+                El autor es requerido.</div>
+        </div>
+    </div>
+    <button type="submit" [disabled]="!profileForm.valid">Submit</button>
+</form>
+
+<div *ngIf="variablen==0; else loggedOut">
+
+</div>
+
+<ng-template #loggedOut>
+
+    <div class="container">
+        <h1 style="text-align: center;">Listado de Publicaciones</h1>
+        <br>
+        <div class="row">
+            <div class="col-sm-4" *ngFor="let dato of datos; let i = index">
+                <div class="card">
+                    
+                    
+                    <div class="card-body">
+                    <h3 class="card-title" style="text-align: center;"><b>Publicación #{{i+1}}</b></h3>
+                        <p style="color:black;"><b>Titulo: </b>{{dato.titulo}}</p> 
+                        <p style="color:black;"><b>Descripción: </b>: {{dato.descripcion}}</p> 
+                        <p style="color:black;"><b>Autor: </b>: {{dato.autor}}</p> 
+                        
+                    </div>              
+                </div>
+                <br>
+            </div>
+        </div>
+    </div>
+</ng-template>

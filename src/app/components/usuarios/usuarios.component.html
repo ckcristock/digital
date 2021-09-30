@@ -1,0 +1,75 @@
+<form class="d-flex" (keydown.enter)="$event.preventDefault()">
+    <input class="form-control" type="text" placeholder="Buscar Usuarios por Nombre"  (keyup.enter)="buscar(termino.value)" #termino>
+    <button (click)="buscar(termino.value)" class="btn btn-outline-success" type="button">Buscar</button>
+  </form>
+
+  <br/>
+
+  <div *ngIf="variablem==0; else loggedOut">
+
+    <div class="container">
+        <h1 style="text-align: center;">Usuarios</h1>
+        <br>
+        <div class="row">
+            <div class="col-sm-4" *ngFor="let usuario of usuarios; let i = index">
+                <div class="card">
+                    <img src="{{'https://picsum.photos/200/300?random='+i+1}}" class="card-img-top" alt="..." />
+                    
+                    <div class="card-body">
+                    <h3 class="card-title" style="text-align: center;"><b>{{usuario.name}}</b></h3>
+                        <p style="color:black;"><i class="fas fa-user"></i><b> Usuario: </b>{{usuario.username}}</p> 
+                        <p style="color:black;"><i class="fas fa-envelope-open-text"></i><b> Email: </b>: {{usuario.email}}</p> 
+                        <p style="color:black;"><i class="fas fa-phone-square-alt"></i> <b> Telefono: </b>: {{usuario.phone}}</p> 
+                        <p style="color:black;"><i class="fas fa-building"></i><b> Ciudad: </b>: {{usuario.address.city}}</p> 
+                    </div>              
+                </div>
+                <br>
+            </div>
+        </div>
+    </div>
+</div>
+
+<ng-template #loggedOut>
+    <div class="container">
+        <h1 style="text-align: center;">Usuarios</h1>
+        <br>
+        <div class="row">
+            <div class="col-sm-4" *ngFor="let usuario of usuariosencontrados; let i = index">
+                <div class="card">
+                    <img src="{{'https://picsum.photos/200/300?random='+i+1}}" class="card-img-top" alt="..." />
+                    <div class="card-body">
+                        <h3 class="card-title" style="text-align: center;"><b>{{usuario.name}}</b></h3>
+                            <p style="color:black;"><i class="fas fa-user"></i><b> Usuario: </b>{{usuario.username}}</p> 
+                            <p style="color:black;"><i class="fas fa-envelope-open-text"></i><b> Email: </b>: {{usuario.email}}</p> 
+                            <p style="color:black;"><i class="fas fa-phone-square-alt"></i> <b> Telefono: </b>: {{usuario.phone}}</p> 
+                            <p style="color:black;"><i class="fas fa-building"></i><b> Ciudad: </b>: {{usuario.address.city}}</p> 
+                    </div>              
+                    </div>
+                    <br>
+            </div>
+        </div>
+        </div>
+        
+  </ng-template>
+
+
+
+
+
+
+
+
+
+
+
+<!-- <ol>
+    <li *ngFor="let usuario of usuarios">
+        <p>{{usuario.name}}</p> 
+        <p>Usuario: {{usuario.username}}</p> 
+        <p>Email: {{usuario.email}}</p> 
+        <p>Telefono: {{usuario.phone}}</p> 
+        <p>Ciudad: {{usuario.address.city}}</p> 
+    </li>
+
+</ol> -->
+

@@ -1,0 +1,32 @@
+<div class="container">
+    <h1 style="text-align: center;">Albumes</h1>
+    <br />
+    <div class="row">
+        <div class="col-sm-4" *ngFor="let album of albumes; let i = index">
+ 
+                <div class="card">
+                    <img src="{{'https://picsum.photos/200/300?random='+i+4}}" class="card-img-top" alt="..." />
+                    
+                    <div class="card-body">
+                        <h3 class="card-title" style="text-align: center;"><b>{{album.name}}</b></h3>
+                        <p style="color: black;"><b>userId: </b>{{album.userId}}</p>
+                        <p style="color: black;"><b>Id: </b>: {{album.id}}</p>
+                        <p style="color: black;"><b>Titulo: </b>: {{album.title}}</p>
+                    </div>
+                </div>
+            <br />
+        
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
