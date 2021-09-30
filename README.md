@@ -1,3 +1,8 @@
+
+La aplicación está construida en Angular. Fue ignorada la carpeta node_modules debido a su gran volumen. Se debe ejecutar el comando "npm install" dentro del proyecto para obtenerla nuevamente.
+
+
+
 # Digital
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.2.
